@@ -45,7 +45,7 @@ import com.gizwits.opensource.appkit.view.HexWatcher;
 
 
 public class GosDeviceControlActivity extends GosControlModuleBaseActivity
-		implements OnClickListener, OnEditorActionListener, OnSeekBarChangeListener {
+		implements OnClickListener {
 
 	/** 设备列表传入的设备变量 */
 	private GizWifiDevice mDevice;
@@ -129,7 +129,19 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 	private TextView tv_data_PAU305_tempReal;
 	private TextView tv_data_PAU305_tempSet;
 
-
+	private View ll_overview_ahu301;
+	private View ll_overview_ahu302;
+	private View ll_overview_ahu303;
+	private View ll_overview_ahu304;
+	private View ll_overview_ahu305;
+	private View ll_overview_ahu306;
+	private View ll_overview_ahu307;
+	private View ll_overview_ahu308;
+	private View ll_overview_pau301;
+	private View ll_overview_pau302;
+	private View ll_overview_pau303;
+	private View ll_overview_pau304;
+	private View ll_overview_pau305;
 
 	private enum handler_key {
 
@@ -179,6 +191,7 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		mToolbar.setOverflowIcon(add);
 		initView();
 		initEvent();
+		sendCommand(KEY_ONLINE_FLAG, 1);
 	}
 
 	private void initView() {
@@ -255,11 +268,40 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		tv_data_PAU305_xinFengWenDU = (TextView) findViewById(R.id.tv_main_state_temp_new_wind_pau305);
 		tv_data_PAU305_tempReal = (TextView) findViewById(R.id.tv_main_state_tempnow_pau305);
 		tv_data_PAU305_tempSet = (TextView) findViewById(R.id.tv_main_state_tempset_pau305);
+
+		ll_overview_ahu301 = findViewById(R.id.ll_ahu301);
+		ll_overview_ahu302 = findViewById(R.id.ll_ahu302);
+		ll_overview_ahu303 = findViewById(R.id.ll_ahu303);
+		ll_overview_ahu304 = findViewById(R.id.ll_ahu304);
+		ll_overview_ahu305 = findViewById(R.id.ll_ahu305);
+		ll_overview_ahu306 = findViewById(R.id.ll_ahu306);
+		ll_overview_ahu307 = findViewById(R.id.ll_ahu307);
+		ll_overview_ahu308 = findViewById(R.id.ll_ahu308);
+
+		ll_overview_pau301 = findViewById(R.id.ll_pau301);
+		ll_overview_pau302 = findViewById(R.id.ll_pau302);
+		ll_overview_pau303 = findViewById(R.id.ll_pau303);
+		ll_overview_pau304 = findViewById(R.id.ll_pau304);
+		ll_overview_pau305 = findViewById(R.id.ll_pau305);
+
 	}
 
 	private void initEvent() {
 
+		ll_overview_ahu301.setOnClickListener(this);
+		ll_overview_ahu302.setOnClickListener(this);
+		ll_overview_ahu303.setOnClickListener(this);
+		ll_overview_ahu304.setOnClickListener(this);
+		ll_overview_ahu305.setOnClickListener(this);
+		ll_overview_ahu306.setOnClickListener(this);
+		ll_overview_ahu307.setOnClickListener(this);
+		ll_overview_ahu308.setOnClickListener(this);
 
+		ll_overview_pau301.setOnClickListener(this);
+		ll_overview_pau302.setOnClickListener(this);
+		ll_overview_pau303.setOnClickListener(this);
+		ll_overview_pau304.setOnClickListener(this);
+		ll_overview_pau305.setOnClickListener(this);
 	}
 
 	private void initDevice() {
@@ -291,60 +333,91 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		mDevice.setListener(null);
 	}
 
+	private void startActivityWithStringAHU(String data){
+
+		Bundle bundle = new Bundle();
+		bundle.putParcelable("GizWifiDevice",mDevice);
+
+		Intent intent = new Intent(GosDeviceControlActivity.this,DeviceDataActivity.class);
+		intent.putExtra("extra_data",data);
+		intent.putExtras(bundle);
+		startActivity(intent);
+	}
+
+	private void startActivityWithStringPAU(String data){
+
+		Bundle bundle = new Bundle();
+		bundle.putParcelable("GizWifiDevice",mDevice);
+
+		Intent intent = new Intent(GosDeviceControlActivity.this,DeviceDataActivity.class);
+		intent.putExtra("extra_data",data);
+		intent.putExtras(bundle);
+		startActivity(intent);
+	}
+
+
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.sw_bool_online_flag:
-			//sendCommand(KEY_ONLINE_FLAG, sw_bool_online_flag.isChecked());
-			break;
+
+			case R.id.ll_ahu301:
+				startActivityWithStringAHU("AHU301");
+				break;
+
+			case R.id.ll_ahu302:
+				startActivityWithStringAHU("AHU302");
+				break;
+
+			case R.id.ll_ahu303:
+				startActivityWithStringAHU("AHU303");
+				break;
+
+			case R.id.ll_ahu304:
+				startActivityWithStringAHU("AHU304");
+				break;
+
+			case R.id.ll_ahu305:
+				startActivityWithStringAHU("AHU305");
+				break;
+
+			case R.id.ll_ahu306:
+				startActivityWithStringAHU("AHU306");
+				break;
+
+			case R.id.ll_ahu307:
+				startActivityWithStringAHU("AHU307");
+				break;
+
+			case R.id.ll_ahu308:
+				startActivityWithStringAHU("AHU308");
+				break;
+
+			case R.id.ll_pau301:
+				startActivityWithStringPAU("PAU301");
+				break;
+
+			case R.id.ll_pau302:
+				startActivityWithStringPAU("PAU302");
+				break;
+
+			case R.id.ll_pau303:
+				startActivityWithStringPAU("PAU303");
+				break;
+
+			case R.id.ll_pau304:
+				startActivityWithStringPAU("PAU304");
+				break;
+
+			case R.id.ll_pau305:
+				startActivityWithStringPAU("PAU305");
+				break;
+
 		default:
 			break;
 		}
 	}
 
-	/*
-	 * ========================================================================
-	 * EditText 点击键盘“完成”按钮方法
-	 * ========================================================================
-	 */
-	@Override
-	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
-		switch (v.getId()) {
-		default:
-			break;
-		}
-		hideKeyBoard();
-		return false;
-
-	}
-	
-	/*
-	 * ========================================================================
-	 * seekbar 回调方法重写
-	 * ========================================================================
-	 */
-	@Override
-	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		
-		switch (seekBar.getId()) {
-		default:
-			break;
-		}
-	}
-
-	@Override
-	public void onStartTrackingTouch(SeekBar seekBar) {
-
-	}
-
-	@Override
-	public void onStopTrackingTouch(SeekBar seekBar) {
-		switch (seekBar.getId()) {
-		default:
-			break;
-		}
-	}
 
 	/*
 	 * ========================================================================
@@ -398,74 +471,163 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 			tv_data_AHU301_title.setBackgroundColor(Color.GRAY);
 		}
 
-		tv_data_AHU301_tempReal.setText(data_AHU301_tempReal+"℃");
-		tv_data_AHU301_humiReal.setText(data_AHU301_humiReal+"RH");
-		tv_data_AHU301_tempSet.setText(data_AHU301_tempSet+"℃");
-		tv_data_AHU301_humiSet.setText(data_AHU301_humiSet+"RH");
+		if (data_AHU302_fengJiQueFeng){
+			tv_data_AHU302_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU302_fengJiStatus){
+			tv_data_AHU302_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU302_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU302_tempReal.setText(data_AHU302_tempReal+"℃");
-		tv_data_AHU302_humiReal.setText(data_AHU302_humiReal+"RH");
-		tv_data_AHU302_tempSet.setText(data_AHU302_tempSet+"℃");
-		tv_data_AHU302_humiSet.setText(data_AHU302_humiSet+"RH");
+		if (data_AHU303_fengJiQueFeng){
+			tv_data_AHU303_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU303_fengJiStatus){
+			tv_data_AHU303_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU303_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU303_tempReal.setText(data_AHU303_tempReal+"℃");
-		tv_data_AHU303_humiReal.setText(data_AHU303_humiReal+"RH");
-		tv_data_AHU303_tempSet.setText(data_AHU303_tempSet+"℃");
-		tv_data_AHU303_humiSet.setText(data_AHU303_humiSet+"RH");
+		if (data_AHU304_fengJiQueFeng){
+			tv_data_AHU304_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU304_fengJiStatus){
+			tv_data_AHU304_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU304_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU304_tempReal.setText(data_AHU304_tempReal+"℃");
-		tv_data_AHU304_humiReal.setText(data_AHU304_humiReal+"RH");
-		tv_data_AHU304_tempSet.setText(data_AHU304_tempSet+"℃");
-		tv_data_AHU304_humiSet.setText(data_AHU304_humiSet+"RH");
+		if (data_AHU305_fengJiQueFeng){
+			tv_data_AHU305_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU305_fengJiStatus){
+			tv_data_AHU305_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU305_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU305_tempReal.setText(data_AHU305_tempReal+"℃");
-		tv_data_AHU305_humiReal.setText(data_AHU305_humiReal+"RH");
-		tv_data_AHU305_tempSet.setText(data_AHU305_tempSet+"℃");
-		tv_data_AHU305_humiSet.setText(data_AHU305_humiSet+"RH");
+		if (data_AHU306_fengJiQueFeng){
+			tv_data_AHU306_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU306_fengJiStatus){
+			tv_data_AHU306_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU306_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU306_tempReal.setText(data_AHU306_tempReal+"℃");
-		tv_data_AHU306_humiReal.setText(data_AHU306_humiReal+"RH");
-		tv_data_AHU306_tempSet.setText(data_AHU306_tempSet+"℃");
-		tv_data_AHU306_humiSet.setText(data_AHU306_humiSet+"RH");
+		if (data_AHU307_fengJiQueFeng){
+			tv_data_AHU307_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU307_fengJiStatus){
+			tv_data_AHU307_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU307_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU307_tempReal.setText(data_AHU307_tempReal+"℃");
-		tv_data_AHU307_humiReal.setText(data_AHU307_humiReal+"RH");
-		tv_data_AHU307_tempSet.setText(data_AHU307_tempSet+"℃");
-		tv_data_AHU307_humiSet.setText(data_AHU307_humiSet+"RH");
+		if (data_AHU308_fengJiQueFeng){
+			tv_data_AHU308_title.setBackgroundColor(Color.RED);
+		}else if (data_AHU308_fengJiStatus){
+			tv_data_AHU308_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_AHU308_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_AHU308_tempReal.setText(data_AHU308_tempReal+"℃");
-		tv_data_AHU308_humiReal.setText(data_AHU308_humiReal+"RH");
-		tv_data_AHU308_tempSet.setText(data_AHU308_tempSet+"℃");
-		tv_data_AHU308_humiSet.setText(data_AHU308_humiSet+"RH");
+		if (data_PAU301_fengJiQueFeng){
+			tv_data_PAU301_title.setBackgroundColor(Color.RED);
+		}else if (data_PAU301_fengJiStatus){
+			tv_data_PAU301_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_PAU301_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_PAU301_tempReal.setText(data_PAU301_tempReal+"℃");
+		if (data_PAU302_fengJiQueFeng){
+			tv_data_PAU302_title.setBackgroundColor(Color.RED);
+		}else if (data_PAU302_fengJiStatus){
+			tv_data_PAU302_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_PAU302_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_PAU301_tempSet.setText(data_PAU301_tempSet+"℃");
+		if (data_PAU303_fengJiQueFeng){
+			tv_data_PAU303_title.setBackgroundColor(Color.RED);
+		}else if (data_PAU303_fengJiStatus){
+			tv_data_PAU303_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_PAU303_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_PAU301_xinFengWenDU.setText(data_PAU301_xinFengWenDU+"℃");
+		if (data_PAU304_fengJiQueFeng){
+			tv_data_PAU304_title.setBackgroundColor(Color.RED);
+		}else if (data_PAU304_fengJiStatus){
+			tv_data_PAU304_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_PAU304_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_PAU302_tempReal.setText(data_PAU302_tempReal+"℃");
+		if (data_PAU305_fengJiQueFeng){
+			tv_data_PAU305_title.setBackgroundColor(Color.RED);
+		}else if (data_PAU305_fengJiStatus){
+			tv_data_PAU305_title.setBackgroundColor(Color.GREEN);
+		}else {
+			tv_data_PAU305_title.setBackgroundColor(Color.GRAY);
+		}
 
-		tv_data_PAU302_tempSet.setText(data_PAU302_tempSet+"℃");
+		tv_data_AHU301_tempReal.setText(data_AHU301_tempReal+" ℃");
+		tv_data_AHU301_humiReal.setText(data_AHU301_humiReal+" RH");
+		tv_data_AHU301_tempSet.setText(data_AHU301_tempSet+" ℃");
+		tv_data_AHU301_humiSet.setText(data_AHU301_humiSet+" RH");
 
-		tv_data_PAU302_xinFengWenDU.setText(data_PAU302_xinFengWenDU+"℃");
+		Log.d("GosDevice", "updateUI: "+data_AHU301_tempReal);
 
-		tv_data_PAU303_tempReal.setText(data_PAU303_tempReal+"℃");
+		tv_data_AHU302_tempReal.setText(data_AHU302_tempReal+" ℃");
+		tv_data_AHU302_humiReal.setText(data_AHU302_humiReal+" RH");
+		tv_data_AHU302_tempSet.setText(data_AHU302_tempSet+" ℃");
+		tv_data_AHU302_humiSet.setText(data_AHU302_humiSet+" RH");
 
-		tv_data_PAU303_tempSet.setText(data_PAU303_tempSet+"℃");
-		tv_data_PAU303_xinFengWenDU.setText(data_PAU303_xinFengWenDU+"℃");
+		tv_data_AHU303_tempReal.setText(data_AHU303_tempReal+" ℃");
+		tv_data_AHU303_humiReal.setText(data_AHU303_humiReal+" RH");
+		tv_data_AHU303_tempSet.setText(data_AHU303_tempSet+" ℃");
+		tv_data_AHU303_humiSet.setText(data_AHU303_humiSet+" RH");
 
-		tv_data_PAU304_tempReal.setText(data_PAU304_tempReal+"℃");
+		tv_data_AHU304_tempReal.setText(data_AHU304_tempReal+" ℃");
+		tv_data_AHU304_humiReal.setText(data_AHU304_humiReal+" RH");
+		tv_data_AHU304_tempSet.setText(data_AHU304_tempSet+" ℃");
+		tv_data_AHU304_humiSet.setText(data_AHU304_humiSet+" RH");
 
-		tv_data_PAU304_tempSet.setText(data_PAU304_tempSet+"℃");
+		tv_data_AHU305_tempReal.setText(data_AHU305_tempReal+" ℃");
+		tv_data_AHU305_humiReal.setText(data_AHU305_humiReal+" RH");
+		tv_data_AHU305_tempSet.setText(data_AHU305_tempSet+" ℃");
+		tv_data_AHU305_humiSet.setText(data_AHU305_humiSet+" RH");
 
-		tv_data_PAU304_xinFengWenDU.setText(data_PAU304_xinFengWenDU+"℃");
+		tv_data_AHU306_tempReal.setText(data_AHU306_tempReal+" ℃");
+		tv_data_AHU306_humiReal.setText(data_AHU306_humiReal+" RH");
+		tv_data_AHU306_tempSet.setText(data_AHU306_tempSet+" ℃");
+		tv_data_AHU306_humiSet.setText(data_AHU306_humiSet+" RH");
 
-		tv_data_PAU305_tempReal.setText(data_PAU305_tempReal+"℃");
+		tv_data_AHU307_tempReal.setText(data_AHU307_tempReal+" ℃");
+		tv_data_AHU307_humiReal.setText(data_AHU307_humiReal+" RH");
+		tv_data_AHU307_tempSet.setText(data_AHU307_tempSet+" ℃");
+		tv_data_AHU307_humiSet.setText(data_AHU307_humiSet+" RH");
 
-		tv_data_PAU305_tempSet.setText(data_PAU305_tempSet+"℃");
+		tv_data_AHU308_tempReal.setText(data_AHU308_tempReal+" ℃");
+		tv_data_AHU308_humiReal.setText(data_AHU308_humiReal+" RH");
+		tv_data_AHU308_tempSet.setText(data_AHU308_tempSet+" ℃");
+		tv_data_AHU308_humiSet.setText(data_AHU308_humiSet+" RH");
 
-		tv_data_PAU305_xinFengWenDU.setText(data_PAU305_xinFengWenDU+"℃");
+		tv_data_PAU301_tempReal.setText(data_PAU301_tempReal+" ℃");
+		tv_data_PAU301_tempSet.setText(data_PAU301_tempSet+" ℃");
+		tv_data_PAU301_xinFengWenDU.setText(data_PAU301_xinFengWenDU+" ℃");
+
+		tv_data_PAU302_tempReal.setText(data_PAU302_tempReal+" ℃");
+		tv_data_PAU302_tempSet.setText(data_PAU302_tempSet+" ℃");
+		tv_data_PAU302_xinFengWenDU.setText(data_PAU302_xinFengWenDU+" ℃");
+
+		tv_data_PAU303_tempReal.setText(data_PAU303_tempReal+" ℃");
+		tv_data_PAU303_tempSet.setText(data_PAU303_tempSet+" ℃");
+		tv_data_PAU303_xinFengWenDU.setText(data_PAU303_xinFengWenDU+" ℃");
+
+		tv_data_PAU304_tempReal.setText(data_PAU304_tempReal+" ℃");
+		tv_data_PAU304_tempSet.setText(data_PAU304_tempSet+" ℃");
+		tv_data_PAU304_xinFengWenDU.setText(data_PAU304_xinFengWenDU+" ℃");
+
+		tv_data_PAU305_tempReal.setText(data_PAU305_tempReal+" ℃");
+		tv_data_PAU305_tempSet.setText(data_PAU305_tempSet+" ℃");
+		tv_data_PAU305_xinFengWenDU.setText(data_PAU305_xinFengWenDU+" ℃");
 	}
 
 	private void setEditText(EditText et, Object value) {

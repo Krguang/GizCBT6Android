@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.gizwits.opensource.appkit.DeviceModule.GosMainActivity;
 import com.gizwits.opensource.appkit.MessageCenter;
 import com.gizwits.opensource.appkit.PushModule.GosPushManager;
 import com.gizwits.opensource.appkit.R;
@@ -76,7 +77,7 @@ public class SplashActivity extends Activity implements ActivityCompat.OnRequest
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this,
-                        GosUserLoginActivity.class);
+                        GosMainActivity.class);
                 startActivity(intent);
                 SplashActivity.this.finish();
             }

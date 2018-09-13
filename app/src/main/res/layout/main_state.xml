@@ -22,6 +22,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ahu301"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -59,7 +60,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -87,7 +88,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -115,7 +116,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -143,7 +144,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -152,6 +153,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ahu302"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -189,7 +191,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -217,7 +219,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -245,7 +247,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -273,7 +275,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -282,6 +284,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ahu303"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -319,7 +322,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -347,7 +350,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -375,7 +378,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -403,7 +406,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -412,6 +415,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ahu304"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -449,7 +453,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -477,7 +481,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -505,7 +509,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -533,7 +537,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -541,6 +545,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_ahu305"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -578,7 +583,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -606,7 +611,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -634,7 +639,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -662,7 +667,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -670,6 +675,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_ahu306"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -707,7 +713,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -735,7 +741,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -763,7 +769,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -791,7 +797,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -800,6 +806,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ahu307"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -837,7 +844,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -865,7 +872,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -893,7 +900,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -921,7 +928,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -929,6 +936,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_ahu308"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -966,7 +974,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -994,7 +1002,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1022,7 +1030,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1050,7 +1058,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0RH"
+                        android:text="00.0 RH"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1059,6 +1067,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_pau301"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -1096,7 +1105,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1124,7 +1133,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1152,7 +1161,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1161,6 +1170,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_pau302"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -1198,7 +1208,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1226,7 +1236,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1254,7 +1264,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1263,6 +1273,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_pau303"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -1300,7 +1311,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1328,7 +1339,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1356,7 +1367,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1365,6 +1376,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_pau304"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -1402,7 +1414,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1430,7 +1442,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1458,7 +1470,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1468,6 +1480,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_pau305"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -1505,7 +1518,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1533,7 +1546,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
@@ -1561,7 +1574,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/frame_shape"
                         android:gravity="center"
-                        android:text="00.0℃"
+                        android:text="00.0 ℃"
                         android:textColor="#ff000000"
                         android:textSize="20sp" />
 
