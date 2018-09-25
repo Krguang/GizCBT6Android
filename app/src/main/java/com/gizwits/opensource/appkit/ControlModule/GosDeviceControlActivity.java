@@ -13,23 +13,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -39,9 +31,6 @@ import com.gizwits.gizwifisdk.enumration.GizWifiDeviceNetStatus;
 import com.gizwits.gizwifisdk.enumration.GizWifiErrorCode;
 import com.gizwits.opensource.appkit.CommonModule.GosDeploy;
 import com.gizwits.opensource.appkit.R;
-import com.gizwits.opensource.appkit.utils.HexStrUtils;
-import com.gizwits.opensource.appkit.view.HexWatcher;
-
 
 
 public class GosDeviceControlActivity extends GosControlModuleBaseActivity
@@ -94,15 +83,11 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 	private TextView tv_data_AHU307_tempSet;
 	private TextView tv_data_AHU307_humiSet;
 
-
 	private TextView tv_data_AHU308_title;
 	private TextView tv_data_AHU308_tempReal;
 	private TextView tv_data_AHU308_humiReal;
 	private TextView tv_data_AHU308_tempSet;
 	private TextView tv_data_AHU308_humiSet;
-
-
-
 
 	private TextView tv_data_PAU301_title;
 	private TextView tv_data_PAU301_xinFengWenDU;
@@ -159,7 +144,6 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 				toastDeviceNoReadyAndExit();
 			}
 		}
-
 	};
 
 	/** The handler. */
@@ -284,7 +268,7 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		ll_overview_pau304 = findViewById(R.id.ll_pau304);
 		ll_overview_pau305 = findViewById(R.id.ll_pau305);
 
-	}
+	}//控件初始化
 
 	private void initEvent() {
 
@@ -302,14 +286,14 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		ll_overview_pau303.setOnClickListener(this);
 		ll_overview_pau304.setOnClickListener(this);
 		ll_overview_pau305.setOnClickListener(this);
-	}
+	}//给view设置监听事件
 
 	private void initDevice() {
 		Intent intent = getIntent();
 		mDevice = (GizWifiDevice) intent.getParcelableExtra("GizWifiDevice");
 		mDevice.setListener(gizWifiDeviceListener);
 		Log.i("Apptest", mDevice.getDid());
-	}
+	}	//从上一个activity获取GizWifiDevice的实例
 
 	private String getDeviceName() {
 		if (TextUtils.isEmpty(mDevice.getAlias())) {
@@ -320,8 +304,11 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 
 	@Override
 	protected void onResume() {
+
+		initDevice();
 		super.onResume();
 		getStatusOfDevice();
+
 	}
 
 	@Override
@@ -338,7 +325,7 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		Bundle bundle = new Bundle();
 		bundle.putParcelable("GizWifiDevice",mDevice);
 
-		Intent intent = new Intent(GosDeviceControlActivity.this,DeviceDataActivity.class);
+		Intent intent = new Intent(GosDeviceControlActivity.this,AhuDeviceDataActivity.class);
 		intent.putExtra("extra_data",data);
 		intent.putExtras(bundle);
 		startActivity(intent);
@@ -349,7 +336,7 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 		Bundle bundle = new Bundle();
 		bundle.putParcelable("GizWifiDevice",mDevice);
 
-		Intent intent = new Intent(GosDeviceControlActivity.this,DeviceDataActivity.class);
+		Intent intent = new Intent(GosDeviceControlActivity.this,PauDeviceDataActivity.class);
 		intent.putExtra("extra_data",data);
 		intent.putExtras(bundle);
 		startActivity(intent);

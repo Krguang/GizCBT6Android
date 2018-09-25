@@ -251,7 +251,8 @@
                 <category android:name="com.gizwits.opensource.appkit" />
             </intent-filter>
         </activity>
-        <activity android:name=".ControlModule.DeviceDataActivity" />
+        <activity android:name=".ControlModule.AhuDeviceDataActivity" />
+        <activity android:name=".ControlModule.PauDeviceDataActivity" />
         <!--Required SDK核心功能-->
         <service android:name="cn.jpush.android.service.DownloadService" android:enabled="true"
             android:exported="false"></service>
