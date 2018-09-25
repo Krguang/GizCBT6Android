@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.gizwits.gizwifisdk.api.GizWifiDevice;
@@ -554,67 +555,66 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 			tv_data_PAU305_title.setBackgroundColor(Color.GRAY);
 		}
 
-		tv_data_AHU301_tempReal.setText(data_AHU301_tempReal+" ℃");
-		tv_data_AHU301_humiReal.setText(data_AHU301_humiReal+" RH");
-		tv_data_AHU301_tempSet.setText(data_AHU301_tempSet+" ℃");
-		tv_data_AHU301_humiSet.setText(data_AHU301_humiSet+" RH");
 
-		Log.d("GosDevice", "updateUI: "+data_AHU301_tempReal);
+		tv_data_AHU301_tempReal.setText(formatValue(data_AHU301_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU301_humiReal.setText(formatValue(data_AHU301_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU301_tempSet.setText(formatValue(data_AHU301_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU301_humiSet.setText(formatValue(data_AHU301_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU302_tempReal.setText(data_AHU302_tempReal+" ℃");
-		tv_data_AHU302_humiReal.setText(data_AHU302_humiReal+" RH");
-		tv_data_AHU302_tempSet.setText(data_AHU302_tempSet+" ℃");
-		tv_data_AHU302_humiSet.setText(data_AHU302_humiSet+" RH");
+		tv_data_AHU302_tempReal.setText(formatValue(data_AHU302_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU302_humiReal.setText(formatValue(data_AHU302_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU302_tempSet.setText(formatValue(data_AHU302_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU302_humiSet.setText(formatValue(data_AHU302_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU303_tempReal.setText(data_AHU303_tempReal+" ℃");
-		tv_data_AHU303_humiReal.setText(data_AHU303_humiReal+" RH");
-		tv_data_AHU303_tempSet.setText(data_AHU303_tempSet+" ℃");
-		tv_data_AHU303_humiSet.setText(data_AHU303_humiSet+" RH");
+		tv_data_AHU303_tempReal.setText(formatValue(data_AHU303_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU303_humiReal.setText(formatValue(data_AHU303_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU303_tempSet.setText(formatValue(data_AHU303_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU303_humiSet.setText(formatValue(data_AHU303_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU304_tempReal.setText(data_AHU304_tempReal+" ℃");
-		tv_data_AHU304_humiReal.setText(data_AHU304_humiReal+" RH");
-		tv_data_AHU304_tempSet.setText(data_AHU304_tempSet+" ℃");
-		tv_data_AHU304_humiSet.setText(data_AHU304_humiSet+" RH");
+		tv_data_AHU304_tempReal.setText(formatValue(data_AHU304_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU304_humiReal.setText(formatValue(data_AHU304_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU304_tempSet.setText(formatValue(data_AHU304_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU304_humiSet.setText(formatValue(data_AHU304_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU305_tempReal.setText(data_AHU305_tempReal+" ℃");
-		tv_data_AHU305_humiReal.setText(data_AHU305_humiReal+" RH");
-		tv_data_AHU305_tempSet.setText(data_AHU305_tempSet+" ℃");
-		tv_data_AHU305_humiSet.setText(data_AHU305_humiSet+" RH");
+		tv_data_AHU305_tempReal.setText(formatValue(data_AHU305_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU305_humiReal.setText(formatValue(data_AHU305_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU305_tempSet.setText(formatValue(data_AHU305_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU305_humiSet.setText(formatValue(data_AHU305_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU306_tempReal.setText(data_AHU306_tempReal+" ℃");
-		tv_data_AHU306_humiReal.setText(data_AHU306_humiReal+" RH");
-		tv_data_AHU306_tempSet.setText(data_AHU306_tempSet+" ℃");
-		tv_data_AHU306_humiSet.setText(data_AHU306_humiSet+" RH");
+		tv_data_AHU306_tempReal.setText(formatValue(data_AHU306_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU306_humiReal.setText(formatValue(data_AHU306_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU306_tempSet.setText(formatValue(data_AHU306_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU306_humiSet.setText(formatValue(data_AHU306_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU307_tempReal.setText(data_AHU307_tempReal+" ℃");
-		tv_data_AHU307_humiReal.setText(data_AHU307_humiReal+" RH");
-		tv_data_AHU307_tempSet.setText(data_AHU307_tempSet+" ℃");
-		tv_data_AHU307_humiSet.setText(data_AHU307_humiSet+" RH");
+		tv_data_AHU307_tempReal.setText(formatValue(data_AHU307_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU307_humiReal.setText(formatValue(data_AHU307_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU307_tempSet.setText(formatValue(data_AHU307_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU307_humiSet.setText(formatValue(data_AHU307_humiSet/10.0,0.1)+" RH");
 
-		tv_data_AHU308_tempReal.setText(data_AHU308_tempReal+" ℃");
-		tv_data_AHU308_humiReal.setText(data_AHU308_humiReal+" RH");
-		tv_data_AHU308_tempSet.setText(data_AHU308_tempSet+" ℃");
-		tv_data_AHU308_humiSet.setText(data_AHU308_humiSet+" RH");
+		tv_data_AHU308_tempReal.setText(formatValue(data_AHU308_tempReal/10.0,0.1)+" ℃");
+		tv_data_AHU308_humiReal.setText(formatValue(data_AHU308_humiReal/10.0,0.1)+" RH");
+		tv_data_AHU308_tempSet.setText(formatValue(data_AHU308_tempSet/10.0,0.1)+" ℃");
+		tv_data_AHU308_humiSet.setText(formatValue(data_AHU308_humiSet/10.0,0.1)+" RH");
 
-		tv_data_PAU301_tempReal.setText(data_PAU301_tempReal+" ℃");
-		tv_data_PAU301_tempSet.setText(data_PAU301_tempSet+" ℃");
-		tv_data_PAU301_xinFengWenDU.setText(data_PAU301_xinFengWenDU+" ℃");
+		tv_data_PAU301_tempReal.setText(formatValue(data_PAU301_tempReal/10.0,0.1)+" ℃");
+		tv_data_PAU301_tempSet.setText(formatValue(data_PAU301_tempSet/10.0,0.1)+" ℃");
+		tv_data_PAU301_xinFengWenDU.setText(formatValue(data_PAU301_xinFengWenDU/10.0,0.1)+" ℃");
 
-		tv_data_PAU302_tempReal.setText(data_PAU302_tempReal+" ℃");
-		tv_data_PAU302_tempSet.setText(data_PAU302_tempSet+" ℃");
-		tv_data_PAU302_xinFengWenDU.setText(data_PAU302_xinFengWenDU+" ℃");
+		tv_data_PAU302_tempReal.setText(formatValue(data_PAU302_tempReal/10.0,0.1)+" ℃");
+		tv_data_PAU302_tempSet.setText(formatValue(data_PAU302_tempSet/10.0,0.1)+" ℃");
+		tv_data_PAU302_xinFengWenDU.setText(formatValue(data_PAU302_xinFengWenDU/10.0,0.1)+" ℃");
 
-		tv_data_PAU303_tempReal.setText(data_PAU303_tempReal+" ℃");
-		tv_data_PAU303_tempSet.setText(data_PAU303_tempSet+" ℃");
-		tv_data_PAU303_xinFengWenDU.setText(data_PAU303_xinFengWenDU+" ℃");
+		tv_data_PAU303_tempReal.setText(formatValue(data_PAU303_tempReal/10.0,0.1)+" ℃");
+		tv_data_PAU303_tempSet.setText(formatValue(data_PAU303_tempSet/10.0,0.1)+" ℃");
+		tv_data_PAU303_xinFengWenDU.setText(formatValue(data_PAU303_xinFengWenDU/10.0,0.1)+" ℃");
 
-		tv_data_PAU304_tempReal.setText(data_PAU304_tempReal+" ℃");
-		tv_data_PAU304_tempSet.setText(data_PAU304_tempSet+" ℃");
-		tv_data_PAU304_xinFengWenDU.setText(data_PAU304_xinFengWenDU+" ℃");
+		tv_data_PAU304_tempReal.setText(formatValue(data_PAU304_tempReal/10.0,0.1)+" ℃");
+		tv_data_PAU304_tempSet.setText(formatValue(data_PAU304_tempSet/10.0,0.1)+" ℃");
+		tv_data_PAU304_xinFengWenDU.setText(formatValue(data_PAU304_xinFengWenDU/10.0,0.1)+" ℃");
 
-		tv_data_PAU305_tempReal.setText(data_PAU305_tempReal+" ℃");
-		tv_data_PAU305_tempSet.setText(data_PAU305_tempSet+" ℃");
-		tv_data_PAU305_xinFengWenDU.setText(data_PAU305_xinFengWenDU+" ℃");
+		tv_data_PAU305_tempReal.setText(formatValue(data_PAU305_tempReal/10.0,0.1)+" ℃");
+		tv_data_PAU305_tempSet.setText(formatValue(data_PAU305_tempSet/10.0,0.1)+" ℃");
+		tv_data_PAU305_xinFengWenDU.setText(formatValue(data_PAU305_xinFengWenDU/10.0,0.1)+" ℃");
 	}
 
 	private void setEditText(EditText et, Object value) {
@@ -827,5 +827,4 @@ public class GosDeviceControlActivity extends GosControlModuleBaseActivity
 			mHandler.sendEmptyMessage(handler_key.UPDATE_UI.ordinal());
 		}
 	}
-
 }

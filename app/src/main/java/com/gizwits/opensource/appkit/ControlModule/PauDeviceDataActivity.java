@@ -259,11 +259,11 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
 
     private void updatePau301() {
 
-        tv_data_tempReal.setText(data_PAU301_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU301_xinFengWenDU+"℃");
-        tv_data_tempSet.setText(data_PAU301_tempSet+"℃");
-        tv_data_lengShuiFaKaiDu.setText(data_PAU301_lengShuiFaKaiDu+"%");
-        tv_data_reShuiFaKaiDu.setText(data_PAU301_reShuiFaKaiDu+"%");
+        tv_data_tempReal.setText(formatValue(data_PAU301_tempReal/10.0,0.1)+"℃");
+        tv_data_xinFengWenDu.setText(formatValue(data_PAU301_xinFengWenDU/10.0,0.1)+"℃");
+        tv_data_tempSet.setText(formatValue(data_PAU301_tempSet/10.0,0.1)+"℃");
+        tv_data_lengShuiFaKaiDu.setText(formatValue(data_PAU301_lengShuiFaKaiDu/10.0,0.1)+"%");
+        tv_data_reShuiFaKaiDu.setText(formatValue(data_PAU301_reShuiFaKaiDu/10.0,0.1)+"%");
 
         if (data_PAU301_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -881,17 +881,4 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
         }
     }
 
-    /**
-     *Description:显示格式化数值，保留对应分辨率的小数个数，比如传入参数（20.3656，0.01），将返回20.37
-     *@param date 传入的数值
-     *@param scale 保留多少位小数
-     *@return
-     */
-    protected String formatValue(double date, Object scale) {
-        if (scale instanceof Double) {
-            DecimalFormat df = new DecimalFormat(scale.toString());
-            return df.format(date);
-        }
-        return Math.round(date) + "";
-    }
 }
