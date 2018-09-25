@@ -28,6 +28,7 @@ import com.gizwits.gizwifisdk.enumration.GizWifiErrorCode;
 import com.gizwits.opensource.appkit.CommonModule.GosDeploy;
 import com.gizwits.opensource.appkit.R;
 
+import java.text.DecimalFormat;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
@@ -41,13 +42,11 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private TextView tv_data_tempSet;
     private TextView tv_data_lengShuiFaKaiDu;
     private TextView tv_data_reShuiFaKaiDu;
-    private TextView tv_data_jiaShiQIKaiDu;
 
     private TextView tv_dongXiaJi;
     private TextView tv_shouZiDong;
 
     private Button bt_fengJiYiQiDong;
-    private Button bt_zhiBanStatus;
     private Button bt_dianYuRe1;
     private Button bt_dianYuRe2;
     private Button bt_dianYuRe3;
@@ -100,9 +99,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_k_ahu);
+        setContentView(R.layout.activity_k_pau);
 
         initDevice();
+        Log.d(TAG, "onCreate: "+"initDevice()");
         // setToolBar(true, getDeviceName());
         setToolBar(true, stringFromPrevious);
         final Drawable add = getResources().getDrawable(R.drawable.common_setting_more);
@@ -126,13 +126,12 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
         tv_data_tempSet = (TextView) findViewById(R.id.tv_data_tempSet);
         tv_data_lengShuiFaKaiDu = (TextView) findViewById(R.id.tv_data_lengShuiFaKaiDu);
         tv_data_reShuiFaKaiDu = (TextView) findViewById(R.id.tv_data_reShuiFaKaiDu);
-        tv_data_jiaShiQIKaiDu = (TextView) findViewById(R.id.tv_data_jiaShiQIKaiDu);
+
 
         tv_dongXiaJi = (TextView) findViewById(R.id.tv_dongXiaJi);
         tv_shouZiDong = (TextView) findViewById(R.id.tv_shouZiDong);
 
         bt_fengJiYiQiDong = (Button) findViewById(R.id.bt_fengJiYiQiDong);
-        bt_zhiBanStatus = (Button) findViewById(R.id.bt_zhiBanStatus);
         bt_dianYuRe1 = (Button) findViewById(R.id.bt_dianYuRe1);
         bt_dianYuRe2 = (Button) findViewById(R.id.bt_dianYuRe2);
         bt_dianYuRe3 = (Button) findViewById(R.id.bt_dianYuRe3);
@@ -152,11 +151,9 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
         tv_data_tempSet.setText("00.0℃");
         tv_data_lengShuiFaKaiDu.setText("00.0%");
         tv_data_reShuiFaKaiDu.setText("00.0%");
-        tv_data_jiaShiQIKaiDu.setText("00.0%");
         tv_dongXiaJi.setText("");
         tv_shouZiDong.setText("");
         bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
-        bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
         bt_dianYuRe1.setBackgroundResource(R.drawable.led_gray);
         bt_dianYuRe2.setBackgroundResource(R.drawable.led_gray);
         bt_dianYuRe3.setBackgroundResource(R.drawable.led_gray);
@@ -173,6 +170,7 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
         Intent intent = getIntent();
         stringFromPrevious = intent.getStringExtra("extra_data");
         mDevice = (GizWifiDevice) intent.getParcelableExtra("GizWifiDevice");
+        Log.d(TAG, "initDevice: mDevice = " + mDevice);
         mDevice.setListener(gizWifiDeviceListener);
     }
 
@@ -262,11 +260,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private void updatePau301() {
 
         tv_data_tempReal.setText(data_PAU301_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU301_humiReal+"RH");
+        tv_data_xinFengWenDu.setText(data_PAU301_xinFengWenDU+"℃");
         tv_data_tempSet.setText(data_PAU301_tempSet+"℃");
         tv_data_lengShuiFaKaiDu.setText(data_PAU301_lengShuiFaKaiDu+"%");
         tv_data_reShuiFaKaiDu.setText(data_PAU301_reShuiFaKaiDu+"%");
-        tv_data_jiaShiQIKaiDu.setText(data_PAU301_jiaShiQIKaiDu+"%");
 
         if (data_PAU301_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -284,12 +281,6 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_green);
         }else {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
-        }
-
-        if (data_PAU301_zhiBanStatus){
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_green);
-        }else {
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
         }
 
         if (data_PAU301_dianYuRe1){
@@ -350,11 +341,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private void updatePau302() {
 
         tv_data_tempReal.setText(data_PAU302_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU302_humiReal+"RH");
+        tv_data_xinFengWenDu.setText(data_PAU302_xinFengWenDU+"℃");
         tv_data_tempSet.setText(data_PAU302_tempSet+"℃");
         tv_data_lengShuiFaKaiDu.setText(data_PAU302_lengShuiFaKaiDu+"%");
         tv_data_reShuiFaKaiDu.setText(data_PAU302_reShuiFaKaiDu+"%");
-        tv_data_jiaShiQIKaiDu.setText(data_PAU302_jiaShiQIKaiDu+"%");
 
         if (data_PAU302_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -374,11 +364,6 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
         }
 
-        if (data_PAU302_zhiBanStatus){
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_green);
-        }else {
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
-        }
 
         if (data_PAU302_dianYuRe1){
             bt_dianYuRe1.setBackgroundResource(R.drawable.led_green);
@@ -439,11 +424,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private void updatePau303() {
 
         tv_data_tempReal.setText(data_PAU303_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU303_humiReal+"RH");
+        tv_data_xinFengWenDu.setText(data_PAU303_xinFengWenDU+"℃");
         tv_data_tempSet.setText(data_PAU303_tempSet+"℃");
         tv_data_lengShuiFaKaiDu.setText(data_PAU303_lengShuiFaKaiDu+"%");
         tv_data_reShuiFaKaiDu.setText(data_PAU303_reShuiFaKaiDu+"%");
-        tv_data_jiaShiQIKaiDu.setText(data_PAU303_jiaShiQIKaiDu+"%");
 
         if (data_PAU303_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -461,12 +445,6 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_green);
         }else {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
-        }
-
-        if (data_PAU303_zhiBanStatus){
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_green);
-        }else {
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
         }
 
         if (data_PAU303_dianYuRe1){
@@ -528,11 +506,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private void updatePau304() {
 
         tv_data_tempReal.setText(data_PAU304_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU304_humiReal+"RH");
+        tv_data_xinFengWenDu.setText(data_PAU304_xinFengWenDU+"℃");
         tv_data_tempSet.setText(data_PAU304_tempSet+"℃");
         tv_data_lengShuiFaKaiDu.setText(data_PAU304_lengShuiFaKaiDu+"%");
         tv_data_reShuiFaKaiDu.setText(data_PAU304_reShuiFaKaiDu+"%");
-        tv_data_jiaShiQIKaiDu.setText(data_PAU304_jiaShiQIKaiDu+"%");
 
         if (data_PAU304_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -552,11 +529,6 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
         }
 
-        if (data_PAU304_zhiBanStatus){
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_green);
-        }else {
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
-        }
 
         if (data_PAU304_dianYuRe1){
             bt_dianYuRe1.setBackgroundResource(R.drawable.led_green);
@@ -617,11 +589,10 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
     private void updatePau305() {
 
         tv_data_tempReal.setText(data_PAU305_tempReal+"℃");
-        tv_data_xinFengWenDu.setText(data_PAU305_humiReal+"RH");
+        tv_data_xinFengWenDu.setText(data_PAU305_xinFengWenDU+"℃");
         tv_data_tempSet.setText(data_PAU305_tempSet+"℃");
         tv_data_lengShuiFaKaiDu.setText(data_PAU305_lengShuiFaKaiDu+"%");
         tv_data_reShuiFaKaiDu.setText(data_PAU305_reShuiFaKaiDu+"%");
-        tv_data_jiaShiQIKaiDu.setText(data_PAU305_jiaShiQIKaiDu+"%");
 
         if (data_PAU305_dongXiaJi){
             tv_dongXiaJi.setText("夏季");
@@ -641,11 +612,6 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             bt_fengJiYiQiDong.setBackgroundResource(R.drawable.led_gray);
         }
 
-        if (data_PAU305_zhiBanStatus){
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_green);
-        }else {
-            bt_zhiBanStatus.setBackgroundResource(R.drawable.led_gray);
-        }
 
         if (data_PAU305_dianYuRe1){
             bt_dianYuRe1.setBackgroundResource(R.drawable.led_green);
@@ -913,5 +879,19 @@ public class PauDeviceDataActivity extends GosControlModuleBaseActivity {
             getDataFromReceiveDataMap(dataMap);
             mHandler.sendEmptyMessage(PauDeviceDataActivity.handler_key.UPDATE_UI.ordinal());
         }
+    }
+
+    /**
+     *Description:显示格式化数值，保留对应分辨率的小数个数，比如传入参数（20.3656，0.01），将返回20.37
+     *@param date 传入的数值
+     *@param scale 保留多少位小数
+     *@return
+     */
+    protected String formatValue(double date, Object scale) {
+        if (scale instanceof Double) {
+            DecimalFormat df = new DecimalFormat(scale.toString());
+            return df.format(date);
+        }
+        return Math.round(date) + "";
     }
 }
