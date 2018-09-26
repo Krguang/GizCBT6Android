@@ -2780,7 +2780,7 @@ public class GosControlModuleBaseActivity extends GosBaseActivity {
 	/**
 	 *Description:显示格式化数值，保留对应分辨率的小数个数，比如传入参数（20.3656，0.01），将返回20.37
 	 *@param date 传入的数值
-	 *@param radio 保留多少位小数
+	 *@param scale 保留多少位小数
 	 *@return
 	 */
 	protected String formatValue(double date, Object scale) {
